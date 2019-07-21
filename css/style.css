@@ -1,0 +1,129 @@
+/*
+COLORS:
+sakura: #733657
+light: #fee9d7
+dark: #f9bf8f
+red accent: #e2434b
+text: #34222e
+*/
+
+/* use * for a universal selector to apply to all elements, which does a basic reset of the user agent defaults */
+* {
+    margin: 0;
+    padding: 0;
+    /* use box-sizing: border-box to remove any default borders / padding as we add elements */
+    box-sizing: border-box;
+}
+body {
+    color: #34222e;
+    font-family: "Lato", sans-serif;
+    font-size: 1.6rem;
+    font-weight: 400;
+    line-height: 1.7;
+    padding: 3vmax;
+}
+.header {
+    /* Photo by Pixabay */
+    background-image: linear-gradient(to right bottom, rgba(255, 234, 214, 0.65), rgba(249, 191, 143, 0.65)), url(../img/canva_kyoto_background.png);
+    background-position: top;
+    background-size: cover;
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+    height: 95vh;
+    position: relative;
+}
+.logo-svg-wrapper {
+    position: absolute;
+    left: 4rem;
+    top: 4rem;
+    width: 40%;
+}
+.header-text-box {
+    position: absolute;
+    left: 50%;
+    text-align: center;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+    .heading-primary {
+        backface-visibility: hidden;
+        color: #34222e;
+        margin-bottom: 4vmax;
+        text-transform: uppercase;
+    }
+        .heading-primary-main {
+            /* if you want the animation to delay start
+            animation-delay: 5s; */
+            animation-duration: 3s;
+            animation-name: moveInLeft;
+            animation-timing-function: ease-out;
+            display: block;
+            font-size: 6rem;
+            font-weight: 400;
+            letter-spacing: 2rem;
+            margin-right: -2vmax;
+            text-align: center;
+        }
+        .heading-primary-sub {
+            /*animation-delay: 5s;*/
+            animation: moveInRight 3s ease-out;
+            display: block;
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 0.17rem;
+            text-align: center;
+        }
+    .btn:link,
+    .btn:visited {
+        border-radius: 10rem;
+        display: inline-block;
+        padding: 0.5vmax 2vmax;
+        text-decoration: none;
+        text-transform: uppercase;
+        transition: all .2s;
+    }
+    .btn:hover {
+        /* offset-x offset-y blur-radius rgba(color r,g,b, opacity) */
+        box-shadow: 0 1rem 3rem rgba(0,0,0,.3);
+        transform: translateY(-4%);
+    }
+    .btn:active {
+        box-shadow: 0 0.3rem 0.8rem rgba(0,0,0,.3);
+        transform: translateY(-2%);
+    }
+    .btn-white {
+        background-color: #fee9d7;
+        color: #733657;
+    }
+/* create an animation to make the heading text move in upon page refresh; browsers are
+generally optimized for only the opacity and transform properties, so stick to mainly using those */
+@keyframes moveInLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-90%);
+    }
+    75% {
+        transform: translateX(15%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+@keyframes moveInRight {
+    0% {
+        opacity: 0;
+        transform: translateX(90%);
+    }
+    75% {
+        transform: translateX(-15%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+@media (max-width: 76.8em) {
+    body {
+        padding: 0;
+    }
+}
