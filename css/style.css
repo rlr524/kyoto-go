@@ -37,27 +37,27 @@ body {
     height: 95vh;
     position: relative;
 }
-.logo-svg-wrapper {
+.header__logo--svg-wrapper {
     position: absolute;
     left: 4rem;
     top: 4rem;
     width: 40%;
 }
-.header-text-box {
+.header__text-box {
     position: absolute;
     left: 50%;
     text-align: center;
     top: 50%;
     transform: translate(-50%, -50%);
 }
-    .heading-primary {
+.heading-primary {
         backface-visibility: hidden;
         color: #34222e;
         margin-bottom: 4vmax;
         text-align: center;
         text-transform: uppercase;
-    }
-        .heading-primary-main {
+}
+.heading-primary--main {
             /* if you want the animation to delay start
             animation-delay: 5s; */
             animation-duration: 3s;
@@ -69,8 +69,8 @@ body {
             letter-spacing: 2rem;
             margin-left: 1rem;
             text-align: center;
-        }
-        .heading-primary-sub {
+}
+.heading-primary--sub {
             /*animation-delay: 5s;*/
             animation: moveInRight 3s ease-out;
             display: block;
@@ -78,64 +78,64 @@ body {
             font-weight: 700;
             letter-spacing: 0.17rem;
             text-align: center;
-        }
-    /* these are pseudo-classes, note just one :, CSS keywords used for styling a specific state of
-    the element that is affected by user action */
-    .btn:link,
-    .btn:visited {
-        border-radius: 10rem;
-        display: inline-block;
-        font-size: 2.5rem;
-        padding: 0.5vmax 2vmax;
-        position: relative;
-        text-decoration: none;
-        text-transform: uppercase;
-        transition: all .2s;
-    }
-    .btn:hover {
-        /* offset-x offset-y blur-radius rgba(color r,g,b, opacity) */
-        box-shadow: 0 1rem 3rem rgba(0,0,0,.3);
-        transform: translateY(-4%);
-    }
-    .btn:active {
-        box-shadow: 0 0.3rem 0.8rem rgba(0,0,0,.3);
-        transform: translateY(-2%);
-    }
-    .btn-solid {
-        background-color: #fee9d7;
-        color: #733657;
-    }
-    /* This is an pseudo-element, note the two ::, a CSS keyword used for styling a specific part of the
-    element, and can be independent of user action...in this case, however, we are adding style to the button
-    that occurs after click; the "after" in the element, refers to the fact that it is the last child of the element,
-    so it is the last thing to happen (e.g. happens after all other .btn styling) */
-    .btn::after {
-        /* in this pseudo-element, 'after', we are required to use content and display...we don't have any content
-        requirement, so we leave it as empty with empty quotes */
-        border-radius: 10rem;
-        content: "";
-        display: inline-block;
-        /* height and width are 100% because of this pseudo-element being a child of .btn...we use 100% because we don't
-        want to change the button's height or width */
-        height: 100%;
-        position: absolute;
-            top: 0;
-            left: 0;
-        transition: all .4s;
-        width: 100%;
-        z-index: -1;
-    }
-    .btn-solid::after {
-        background-color: #fee9d7;
-    }
-    .btn:hover::after {
-        transform: scaleX(1.1) scaleY(1.3);
-        opacity: 0;
-    }
-    .btn-animated {
-        animation: moveInBottom 1s ease-out .75s;
-        animation-fill-mode: backwards;
-    }
+}
+/* these are pseudo-classes, note just one :, CSS keywords used for styling a specific state of
+the element that is affected by user action */
+.header__btn:link,
+.header__btn:visited {
+    border-radius: 10rem;
+    display: inline-block;
+    font-size: 2.5rem;
+    padding: 0.5vmax 2vmax;
+    position: relative;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: all .2s;
+}
+.header__btn:hover {
+    /* offset-x offset-y blur-radius rgba(color r,g,b, opacity) */
+    box-shadow: 0 1rem 3rem rgba(0,0,0,.3);
+    transform: translateY(-4%);
+}
+.header__btn:active {
+    box-shadow: 0 0.3rem 0.8rem rgba(0,0,0,.3);
+    transform: translateY(-2%);
+}
+.header__btn--solid {
+    background-color: #fee9d7;
+    color: #733657;
+}
+/* This is an pseudo-element, note the two ::, a CSS keyword used for styling a specific part of the
+element, and can be independent of user action...in this case, however, we are adding style to the button
+that occurs after click; the "after" in the element, refers to the fact that it is the last child of the element,
+so it is the last thing to happen (e.g. happens after all other .btn styling) */
+.header__btn::after {
+    /* in this pseudo-element, 'after', we are required to use content and display...we don't have any content
+    requirement, so we leave it as empty with empty quotes */
+    border-radius: 10rem;
+    content: "";
+    display: inline-block;
+    /* height and width are 100% because of this pseudo-element being a child of .btn...we use 100% because we don't
+    want to change the button's height or width */
+    height: 100%;
+    position: absolute;
+        top: 0;
+        left: 0;
+    transition: all .4s;
+    width: 100%;
+    z-index: -1;
+}
+.header__btn--solid::after {
+    background-color: #fee9d7;
+}
+.header__btn:hover::after {
+    transform: scaleX(1.1) scaleY(1.3);
+    opacity: 0;
+}
+.header__btn--animated {
+    animation: moveInBottom 1s ease-out .75s;
+    animation-fill-mode: backwards;
+}
 /* Create an animation to move the button in from the bottom */
 @keyframes moveInBottom {
     0% {

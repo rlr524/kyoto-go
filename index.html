@@ -13,9 +13,9 @@
     <body>
         <header class="header">
             <div>
-                <span class="background-image" role="img" aria-label="Background image of Kyoto with Kinkaku-ji Temple."></span>
+                <span class="header__background-image" role="img" aria-label="Background image of Kyoto with Kinkaku-ji Temple."></span>
             </div>
-            <div class="logo-svg-wrapper">
+            <div class="header__logo--svg-wrapper">
                 <svg role="img" aria-labelledby="logoSVGTitle logoSVGDesc" width="15%" height="15%" viewBox="0 0 43 43" version="1.1" xmlns="http://www.w3.org/2000/svg" xml:space="preserve"
                      style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
                     <title id="logoSVGTitle">Tori gate logo for Kyoto, Go!</title>
@@ -55,12 +55,12 @@
                 </g>
                 </svg>
             </div>
-            <div class="header-text-box">
-            <h1 class="heading-primary">
-                <span class="heading-primary-main">KYOTO</span>
-                <span class="heading-primary-sub">The historic heart of Japan</span>
+            <div class="header__text-box">
+            <h1 class="heading-primary"> <!-- bem note: heading-primary is a standalone, potentially reusable, treat it like a block-->
+                <span class="heading-primary--main">KYOTO</span> <!--bem note: main creates a separate version of heading primary so use two dashes for the modifier-->
+                <span class="heading-primary--sub">The historic heart of Japan</span>
             </h1>
-                <a href="#" class="btn btn-solid btn-animated">Discover Kyoto</a>
+                <a href="#" class="header__btn header__btn--solid header__btn--animated">Discover Kyoto</a> <!-- bem note: keeping btn as a child of header as wouldn't reuse it -->
             </div>
         </header>
     </body>
