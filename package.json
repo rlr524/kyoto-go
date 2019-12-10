@@ -1,0 +1,22 @@
+{
+  "name": "kyoto-go",
+  "version": "0.1.0",
+  "description": "Kyoto Go! Site for CSS Course",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rlr524/kyoto-go.git"
+  },
+  "author": "Rob Ranf",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rlr524/kyoto-go/issues"
+  },
+  "homepage": "https://github.com/rlr524/kyoto-go#readme",
+  "dependencies": {
+    "node-sass": "^4.13.0"
+  }
+}
