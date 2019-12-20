@@ -1,53 +1,64 @@
+$color-sakura: #733657;
+$color-light: #fee9d7;
+$color-dark: #f9bf8f;
+$color-red-accent: #e2434b;
+$color-text: #34222e;
+
 /* use * for a universal selector to apply to all elements, which does a basic reset of the user agent defaults */
 *,
 *::after,
 *::before {
   box-sizing: inherit;
   margin: 0;
-  padding: 0; }
-
+  padding: 0;
+}
 html {
-  font-size: 62.5%; }
-
+  font-size: 62.5%;
+}
 body {
   /* use box-sizing: border-box to remove any default borders / padding as we add elements */
-  color: #34222e;
+  color: $color-text;
   box-sizing: border-box;
   font-family: "Lato", sans-serif;
   font-size: 1.25rem;
   font-weight: 400;
   line-height: 1.7;
-  padding: 3vmax; }
-
+  padding: 3vmax;
+}
 .header {
   /* Photo by Pixabay */
-  background-image: linear-gradient(to right bottom, rgba(254, 233, 215, 0.65), rgba(249, 191, 143, 0.65)), url(../img/canva_kyoto_background.png);
+  background-image: linear-gradient(
+      to right bottom,
+      rgba($color-light, 0.65),
+      rgba($color-dark, 0.65)
+    ),
+    url(../img/canva_kyoto_background.png);
   background-position: top;
   background-size: cover;
   clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
   height: 95vh;
-  position: relative; }
-
+  position: relative;
+}
 .header__logo--svg-wrapper {
   position: absolute;
   left: 4rem;
   top: 4rem;
-  width: 40%; }
-
+  width: 40%;
+}
 .header__text-box {
   position: absolute;
   left: 50%;
   text-align: center;
   top: 50%;
-  transform: translate(-50%, -50%); }
-
+  transform: translate(-50%, -50%);
+}
 .heading-primary {
   backface-visibility: hidden;
-  color: #34222e;
+  color: $color-text;
   margin-bottom: 4vmax;
   text-align: center;
-  text-transform: uppercase; }
-
+  text-transform: uppercase;
+}
 .heading-primary--main {
   /* if you want the animation to delay start
             animation-delay: 5s; */
@@ -59,8 +70,8 @@ body {
   font-weight: 400;
   letter-spacing: 2rem;
   margin-left: 1rem;
-  text-align: center; }
-
+  text-align: center;
+}
 .heading-primary--sub {
   /*animation-delay: 5s;*/
   animation: moveInRight 3s ease-out;
@@ -68,8 +79,8 @@ body {
   font-size: 2.5rem;
   font-weight: 700;
   letter-spacing: 0.17rem;
-  text-align: center; }
-
+  text-align: center;
+}
 /* these are pseudo-classes, note just one :, CSS keywords used for styling a specific state of
 the element that is affected by user action */
 .header__btn:link,
@@ -81,21 +92,21 @@ the element that is affected by user action */
   position: relative;
   text-decoration: none;
   text-transform: uppercase;
-  transition: all 0.2s; }
-
+  transition: all 0.2s;
+}
 .header__btn:hover {
   /* offset-x offset-y blur-radius rgba(color r,g,b, opacity) */
   box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.3);
-  transform: translateY(-4%); }
-
+  transform: translateY(-4%);
+}
 .header__btn:active {
   box-shadow: 0 0.3rem 0.8rem rgba(0, 0, 0, 0.3);
-  transform: translateY(-2%); }
-
+  transform: translateY(-2%);
+}
 .header__btn--solid {
-  background-color: #fee9d7;
-  color: #733657; }
-
+  background-color: $color-light;
+  color: $color-sakura;
+}
 /* This is an pseudo-element, note the two ::, a CSS keyword used for styling a specific part of the
 element, and can be independent of user action...in this case, however, we are adding style to the button
 that occurs after click; the "after" in the element, refers to the fact that it is the last child of the element,
@@ -114,54 +125,63 @@ so it is the last thing to happen (e.g. happens after all other .btn styling) */
   left: 0;
   transition: all 0.4s;
   width: 100%;
-  z-index: -1; }
-
+  z-index: -1;
+}
 .header__btn--solid::after {
-  background-color: #fee9d7; }
-
+  background-color: $color-light;
+}
 .header__btn:hover::after {
   transform: scaleX(1.1) scaleY(1.3);
-  opacity: 0; }
-
+  opacity: 0;
+}
 .header__btn--animated {
   animation: moveInBottom 1s ease-out 0.75s;
-  animation-fill-mode: backwards; }
-
+  animation-fill-mode: backwards;
+}
 /* Create an animation to move the button in from the bottom */
 @keyframes moveInBottom {
   0% {
     opacity: 0;
-    transform: translateY(90%); }
+    transform: translateY(90%);
+  }
   100% {
     opacity: 1;
-    transform: translateY(0); } }
-
+    transform: translateY(0);
+  }
+}
 /* create an animation to make the heading text move in upon page refresh; browsers are
 generally optimized for only the opacity and transform properties, so stick to mainly using those */
 @keyframes moveInLeft {
   0% {
     opacity: 0;
-    transform: translateX(-90%); }
+    transform: translateX(-90%);
+  }
   75% {
-    transform: translateX(15%); }
+    transform: translateX(15%);
+  }
   100% {
     opacity: 1;
-    transform: translateX(0); } }
-
+    transform: translateX(0);
+  }
+}
 @keyframes moveInRight {
   0% {
     opacity: 0;
-    transform: translateX(90%); }
+    transform: translateX(90%);
+  }
   75% {
-    transform: translateX(-15%); }
+    transform: translateX(-15%);
+  }
   100% {
     opacity: 1;
-    transform: translateX(0); } }
-
+    transform: translateX(0);
+  }
+}
 /* media query for phones, kicks in at 768px */
 @media (max-width: 768px) {
   body {
-    padding: 0; }
+    padding: 0;
+  }
   /* .heading-primary-main {
         font-size: 6.4rem;
     }
@@ -174,4 +194,5 @@ generally optimized for only the opacity and transform properties, so stick to m
     .btn:link,
     .btn:visited {
         font-size: 1.67rem;
-    } */ }
+    } */
+}
