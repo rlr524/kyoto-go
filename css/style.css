@@ -1,4 +1,5 @@
 /* use * for a universal selector to apply to all elements, which does a basic reset of the user agent defaults */
+@import "https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900";
 *,
 *::after,
 *::before {
@@ -11,13 +12,64 @@ html {
 
 body {
   /* use box-sizing: border-box to remove any default borders / padding as we add elements */
-  color: #34222e;
   box-sizing: border-box;
+  padding: 3vmax; }
+
+/* media query for phones, kicks in at 768px */
+@media (max-width: 768px) {
+  body {
+    padding: 0; }
+  /* .heading-primary-main {
+        font-size: 6.4rem;
+    }
+    .heading-primary-sub {
+        font-size: 1.67rem;
+    }
+    .logo-svg-wrapper {
+        width: 100%;
+    }
+    .btn:link,
+    .btn:visited {
+        font-size: 1.67rem;
+    } */ }
+
+/* Create an animation to move the button in from the bottom */
+@keyframes moveInBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(90%); }
+  100% {
+    opacity: 1;
+    transform: translateY(0); } }
+
+/* create an animation to make the heading text move in upon page refresh; browsers are
+  generally optimized for only the opacity and transform properties, so stick to mainly using those */
+@keyframes moveInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-90%); }
+  75% {
+    transform: translateX(15%); }
+  100% {
+    opacity: 1;
+    transform: translateX(0); } }
+
+@keyframes moveInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(90%); }
+  75% {
+    transform: translateX(-15%); }
+  100% {
+    opacity: 1;
+    transform: translateX(0); } }
+
+body {
+  color: #34222e;
   font-family: "Lato", sans-serif;
   font-size: 1.25rem;
   font-weight: 400;
-  line-height: 1.7;
-  padding: 3vmax; }
+  line-height: 1.7; }
 
 .header {
   /* Photo by Pixabay */
@@ -28,11 +80,11 @@ body {
   height: 95vh;
   position: relative;
   /* these are pseudo-classes, note just one :, CSS keywords used for styling a specific state of
-the element that is affected by user action */
+  the element that is affected by user action */
   /* This is an pseudo-element, note the two ::, a CSS keyword used for styling a specific part of the
-  element, and can be independent of user action...in this case, however, we are adding style to the button
-  that occurs after click; the "after" in the element, refers to the fact that it is the last child of the element,
-  so it is the last thing to happen (e.g. happens after all other .btn styling) */ }
+    element, and can be independent of user action...in this case, however, we are adding style to the button
+    that occurs after click; the "after" in the element, refers to the fact that it is the last child of the element,
+    so it is the last thing to happen (e.g. happens after all other .btn styling) */ }
   .header__logo--svg-wrapper {
     position: absolute;
     left: 4rem;
@@ -66,12 +118,12 @@ the element that is affected by user action */
     color: #733657; }
   .header__btn::after {
     /* in this pseudo-element, 'after', we are required to use content and display...we don't have any content
-  requirement, so we leave it as empty with empty quotes */
+    requirement, so we leave it as empty with empty quotes */
     border-radius: 10rem;
     content: "";
     display: inline-block;
     /* height and width are 100% because of this pseudo-element being a child of .btn...we use 100% because we don't
-    want to change the button's height or width */
+      want to change the button's height or width */
     height: 100%;
     position: absolute;
     top: 0;
@@ -96,7 +148,7 @@ the element that is affected by user action */
   text-transform: uppercase; }
   .heading-primary--main {
     /* if you want the animation to delay start
-              animation-delay: 5s; */
+                  animation-delay: 5s; */
     animation-duration: 3s;
     animation-name: moveInLeft;
     animation-timing-function: ease-out;
@@ -114,52 +166,3 @@ the element that is affected by user action */
     font-weight: 700;
     letter-spacing: 0.17rem;
     text-align: center; }
-
-/* Create an animation to move the button in from the bottom */
-@keyframes moveInBottom {
-  0% {
-    opacity: 0;
-    transform: translateY(90%); }
-  100% {
-    opacity: 1;
-    transform: translateY(0); } }
-
-/* create an animation to make the heading text move in upon page refresh; browsers are
-generally optimized for only the opacity and transform properties, so stick to mainly using those */
-@keyframes moveInLeft {
-  0% {
-    opacity: 0;
-    transform: translateX(-90%); }
-  75% {
-    transform: translateX(15%); }
-  100% {
-    opacity: 1;
-    transform: translateX(0); } }
-
-@keyframes moveInRight {
-  0% {
-    opacity: 0;
-    transform: translateX(90%); }
-  75% {
-    transform: translateX(-15%); }
-  100% {
-    opacity: 1;
-    transform: translateX(0); } }
-
-/* media query for phones, kicks in at 768px */
-@media (max-width: 768px) {
-  body {
-    padding: 0; }
-  /* .heading-primary-main {
-        font-size: 6.4rem;
-    }
-    .heading-primary-sub {
-        font-size: 1.67rem;
-    }
-    .logo-svg-wrapper {
-        width: 100%;
-    }
-    .btn:link,
-    .btn:visited {
-        font-size: 1.67rem;
-    } */ }

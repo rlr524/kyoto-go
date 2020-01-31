@@ -1,0 +1,39 @@
+/* Create an animation to move the button in from the bottom */
+@keyframes moveInBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(90%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* create an animation to make the heading text move in upon page refresh; browsers are
+  generally optimized for only the opacity and transform properties, so stick to mainly using those */
+@keyframes moveInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-90%);
+  }
+  75% {
+    transform: translateX(15%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes moveInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(90%);
+  }
+  75% {
+    transform: translateX(-15%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
