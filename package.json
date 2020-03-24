@@ -17,6 +17,10 @@
   },
   "homepage": "https://github.com/rlr524/kyoto-go#readme",
   "dependencies": {
-    "node-sass": "^4.13.0"
+    "node-sass": "^4.13.1",
+    "prettier": "^2.0.2"
+  },
+  "devDependencies": {
+    "eslint": "^6.8.0"
   }
 }
