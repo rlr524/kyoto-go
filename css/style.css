@@ -71,6 +71,52 @@ body {
   font-weight: 400;
   line-height: 1.7; }
 
+.heading-primary {
+  backface-visibility: hidden;
+  color: #34222e;
+  margin-bottom: 4vmax;
+  text-align: center;
+  text-transform: uppercase; }
+  .heading-primary--main {
+    /* if you want the animation to delay start
+                  animation-delay: 5s; */
+    animation-duration: 3s;
+    animation-name: moveInLeft;
+    animation-timing-function: ease-out;
+    display: block;
+    font-size: 9.6rem;
+    font-weight: 400;
+    letter-spacing: 2rem;
+    margin-left: 1rem; }
+  .heading-primary--sub {
+    /*animation-delay: 5s;*/
+    animation: moveInRight 3s ease-out;
+    display: block;
+    font-size: 2.5rem;
+    font-weight: 700;
+    letter-spacing: 0.17rem; }
+
+.heading-secondary {
+  font-size: 2.5rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 0.17rem;
+  display: inline-block;
+  background-image: linear-gradient(to right, #624057, #34222e);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  transition: all 0.2s; }
+  .heading-secondary:hover {
+    transform: skewY(2deg) skewX(8deg) scale(1.1);
+    text-shadow: 0.5rem 1rem 2rem rgba(0, 0, 0, 0.2); }
+
+.u-center-text {
+  text-align: center; }
+
+.u-margin-bottom-8 {
+  margin-bottom: 8rem; }
+
 .header {
   /* Photo by Pixabay */
   background-image: linear-gradient(to right bottom, rgba(254, 233, 215, 0.65), rgba(249, 191, 143, 0.65)), url(../img/canva_kyoto_background.png);
@@ -140,36 +186,13 @@ body {
     animation: moveInBottom 1s ease-out 0.75s;
     animation-fill-mode: backwards; }
 
-.heading-primary {
-  backface-visibility: hidden;
-  color: #34222e;
-  margin-bottom: 4vmax;
-  text-align: center;
-  text-transform: uppercase; }
-  .heading-primary--main {
-    /* if you want the animation to delay start
-                  animation-delay: 5s; */
-    animation-duration: 3s;
-    animation-name: moveInLeft;
-    animation-timing-function: ease-out;
-    display: block;
-    font-size: 9.6rem;
-    font-weight: 400;
-    letter-spacing: 2rem;
-    margin-left: 1rem;
-    text-align: center; }
-  .heading-primary--sub {
-    /*animation-delay: 5s;*/
-    animation: moveInRight 3s ease-out;
-    display: block;
-    font-size: 2.5rem;
-    font-weight: 700;
-    letter-spacing: 0.17rem;
-    text-align: center; }
+.section-about {
+  background-color: #f4f4f4;
+  padding: 25rem 0;
+  margin-top: -20vh; }
 
 .row {
   max-width: 114rem;
-  background-color: #eee;
   margin: 0 auto; }
   .row:not(:last-child) {
     margin-bottom: 6rem; }
@@ -178,7 +201,6 @@ body {
     display: table;
     clear: both; }
   .row [class^="col-"] {
-    background-color: orangered;
     float: left; }
     .row [class^="col-"]:not(:last-child) {
       margin-right: 6rem; }

@@ -1,6 +1,5 @@
 .row {
   max-width: $grid-width;
-  background-color: #eee;
   margin: 0 auto;
   //   we don't want the bottom margin on our last row, so use a psuedo class of :last-child as well as a
   //   :not operator to exclude the "last-child" from this value using the gutter-vertical variable
@@ -16,7 +15,6 @@
   // we could also use a *= to select all classes that "contain" the given string but "starts with" works in this case
   // we could also use a $= to select all classes the "end" with a given string
   [class^="col-"] {
-    background-color: $item-background;
     float: left;
     &:not(:last-child) {
       margin-right: $gutter-horizontal;
