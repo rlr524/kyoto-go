@@ -1,4 +1,4 @@
 # ignore the nonprod folder
-nonprod/
+nonprod
 node_modules
 .idea
