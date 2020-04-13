@@ -152,6 +152,53 @@ body {
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
   transform: translateY(0); }
 
+.feature-box {
+  height: 35vh;
+  background-color: rgba(244, 244, 244, 0.8);
+  font-size: 1.5rem;
+  padding: 2.5rem;
+  text-align: center;
+  border-radius: 3px;
+  box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s; }
+  .feature-box__icon {
+    font-size: 6rem;
+    margin-bottom: 0.5rem;
+    display: inline-block;
+    background-image: linear-gradient(to right, #624057, #34222e);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent; }
+  .feature-box:hover {
+    transform: translateY(-1.5rem) scale(1.03); }
+
+.composition {
+  position: relative; }
+  .composition__photo {
+    width: 55%;
+    box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.4);
+    border-radius: 2px;
+    position: absolute;
+    z-index: 10;
+    transition: all 0.2s;
+    outline-offset: 2rem; }
+    .composition__photo--p1 {
+      left: 0;
+      top: -2rem; }
+    .composition__photo--p2 {
+      right: 0;
+      top: 2rem; }
+    .composition__photo--p3 {
+      left: 20%;
+      top: 10rem; }
+    .composition__photo:hover {
+      outline: 1.5rem solid #624057;
+      transform: scale(1.05) translateY(-0.5rem);
+      box-shadow: 0 2.5rem 4rem rgba(0, 0, 0, 0.5);
+      z-index: 20; }
+  .composition:hover .composition_photo:not(:hover) {
+    transform: scale(0.95); }
+
 .header {
   /* Photo by Pixabay */
   background-image: linear-gradient(to right bottom, rgba(254, 233, 215, 0.65), rgba(249, 191, 143, 0.65)), url(../img/canva_kyoto_background.png);
@@ -225,6 +272,14 @@ body {
   background-color: #f4f4f4;
   padding: 25rem 0;
   margin-top: -20vh; }
+
+.section-features {
+  margin-top: -16vh;
+  padding: 20rem;
+  background-image: linear-gradient(to right bottom, rgba(254, 233, 215, 0.65), rgba(249, 191, 143, 0.65)), url(../img/Canva_Traditional_japanese_Gate.png);
+  background-size: cover;
+  position: relative;
+  clip-path: polygon(0 15%, 100% 0, 100% 85%, 0 100%); }
 
 .row {
   max-width: 114rem;
