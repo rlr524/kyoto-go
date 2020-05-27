@@ -1,4 +1,6 @@
-/* use * for a universal selector to apply to all elements, which does a basic reset of the user agent defaults */
+/* use * for a universal selector to apply to all elements, which does a basic reset of the user agent defaults; this can also be
+used to set the root font size for rem units however Emiya best practice is to set root font in a :root selector (the Airbnb style
+guide, which Emiya follows, is silent on this) */
 *,
 *::after,
 *::before {
@@ -7,9 +9,9 @@
   padding: 0;
 }
 
-html {
-  // this defines the base setting of 1rem and is equivalent to 10px (62.5% of 16px)
-  font-size: 62.5%;
+// set the root at 10px in order to allow all subsequent rem units to be based on 10
+:root {
+  font-size: 10px;
 }
 
 body {

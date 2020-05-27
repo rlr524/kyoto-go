@@ -1,0 +1,112 @@
+.card {
+  // perspective needs to be defined on the parent element, can't be on a psuedoclass, etc...
+  perspective: 150rem;
+  position: relative;
+  // we have to explicitly define height on both the parent and the child as setting the children to position:absolute
+  // took them out of the natural flow of the page
+  height: 50rem;
+
+  &__side {
+    color: #fff;
+    font-size: 2rem;
+    height: 50rem;
+    transition: all 0.8s ease;
+    // we give the two sides an absolute position and start at top 0 and left 0 so the two sides are on top of each other
+    // to do this, we also need to set the parent to position: relative above
+    position: absolute;
+    top: 0;
+    left: 0;
+    // give each side a width of 100% to account for that there are different sizes of content on each side
+    width: 100%;
+    backface-visibility: hidden;
+    border-radius: 3px;
+    box-shadow: 0 1.5rem 4rem rgba($color-black, 0.15);
+
+    &--front {
+      background-color: $color-white;
+    }
+
+    &--back {
+      // we're setting the backside with a beginning state already rotated 180 degrees
+      transform: rotateY(180deg);
+
+      &-1 {
+        background-image: linear-gradient(
+          to right bottom,
+          $color-card-green,
+          rgba(64, 128, 106, 0.5)
+        );
+      }
+
+      &-2 {
+        background-image: linear-gradient(
+          to right bottom,
+          $color-card-earth,
+          rgba(128, 128, 128, 0.5)
+        );
+      }
+
+      &-3 {
+        background-image: linear-gradient(
+          to right bottom,
+          $color-card-blue,
+          rgba(75, 106, 136, 0.5)
+        );
+      }
+    }
+  }
+
+  &:hover &__side--front {
+    // we only apply this to the front side because only the front is rotated on hover, the back initial state was set to already rotated
+    transform: rotateY(180deg);
+  }
+
+  &:hover &__side--back {
+    // because the backside's initial state is rotated 180 degrees, on hover, we need to set it to 0
+    transform: rotateY(0);
+  }
+
+  &-photo {
+    width: 100%;
+    height: 33%;
+
+    &-1 {
+      background-image: linear-gradient(
+          to right bottom,
+          $color-card-green,
+          rgba(64, 128, 106, 0.2)
+        ),
+        url("../img/Canva - Temples in Japan.jpg");
+      background-position: top;
+      background-size: cover;
+      clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+      position: relative;
+    }
+
+    &-2 {
+      background-image: linear-gradient(
+          to right bottom,
+          $color-card-earth,
+          rgba(128, 128, 128, 0.2)
+        ),
+        url("../img/Canva - Temples in Japan.jpg");
+      background-position: top;
+      background-size: cover;
+      clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+      position: relative;
+    }
+
+    &-3 {
+      background-image: linear-gradient(
+          to right bottom,
+          $color-card-blue,
+          rgba(75, 106, 136, 0.2)
+        ),
+        url("../img/Canva - Temples in Japan.jpg");
+      background-position: top;
+      background-size: cover;
+      clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+      position: relative;
+    }
+  }
+}
