@@ -188,19 +188,19 @@ body {
     width: 100%;
     height: 33%; }
     .card-photo-1 {
-      background-image: linear-gradient(to right bottom, #40806a, rgba(64, 128, 106, 0.2)), url("../img/Canva - Temples in Japan.jpg");
+      background-image: linear-gradient(to right bottom, #40806a, rgba(64, 128, 106, 0.3)), url("../img/Canva - Temples in Japan.png");
       background-position: top;
       background-size: cover;
       clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
       position: relative; }
     .card-photo-2 {
-      background-image: linear-gradient(to right bottom, #808080, rgba(128, 128, 128, 0.2)), url("../img/Canva - Temples in Japan.jpg");
+      background-image: linear-gradient(to right bottom, #808080, rgba(128, 128, 128, 0.3)), url("../img/Canva - Temples in Japan.png");
       background-position: top;
       background-size: cover;
       clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
       position: relative; }
     .card-photo-3 {
-      background-image: linear-gradient(to right bottom, #4b6a88, rgba(75, 106, 136, 0.2)), url("../img/Canva - Temples in Japan.jpg");
+      background-image: linear-gradient(to right bottom, #4b6a88, rgba(75, 106, 136, 0.3)), url("../img/Canva - Temples in Japan.png");
       background-position: top;
       background-size: cover;
       clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
