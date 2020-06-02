@@ -157,54 +157,79 @@ body {
 .card {
   perspective: 150rem;
   position: relative;
-  height: 50rem; }
+  height: 51rem; }
   .card__side {
-    color: #fff;
-    font-size: 2rem;
-    height: 50rem;
-    transition: all 0.8s ease;
+    height: 51rem;
+    transition: all 1s ease;
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
+    -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
     border-radius: 3px;
+    overflow: hidden;
     box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15); }
     .card__side--front {
       background-color: #ffffff; }
     .card__side--back {
       transform: rotateY(180deg); }
       .card__side--back-1 {
-        background-image: linear-gradient(to right bottom, #40806a, rgba(64, 128, 106, 0.5)); }
+        background-image: linear-gradient(to right bottom, #d66432, rgba(214, 100, 50, 0.5)); }
       .card__side--back-2 {
         background-image: linear-gradient(to right bottom, #808080, rgba(128, 128, 128, 0.5)); }
       .card__side--back-3 {
-        background-image: linear-gradient(to right bottom, #4b6a88, rgba(75, 106, 136, 0.5)); }
+        background-image: linear-gradient(to right bottom, #40806a, rgba(64, 128, 106, 0.5)); }
   .card:hover .card__side--front {
-    transform: rotateY(180deg); }
+    transform: rotateY(-180deg); }
   .card:hover .card__side--back {
     transform: rotateY(0); }
-  .card-photo {
+  .card__picture {
     width: 100%;
-    height: 33%; }
-    .card-photo-1 {
-      background-image: linear-gradient(to right bottom, #40806a, rgba(64, 128, 106, 0.3)), url("../img/Canva - Temples in Japan.png");
-      background-position: top;
-      background-size: cover;
-      clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
-      position: relative; }
-    .card-photo-2 {
-      background-image: linear-gradient(to right bottom, #808080, rgba(128, 128, 128, 0.3)), url("../img/Canva - Temples in Japan.png");
-      background-position: top;
-      background-size: cover;
-      clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
-      position: relative; }
-    .card-photo-3 {
-      background-image: linear-gradient(to right bottom, #4b6a88, rgba(75, 106, 136, 0.3)), url("../img/Canva - Temples in Japan.png");
-      background-position: top;
-      background-size: cover;
-      clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
-      position: relative; }
+    height: 40%;
+    position: relative;
+    background-size: cover;
+    background-position: top;
+    background-blend-mode: screen;
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%); }
+    .card__picture--1 {
+      background-image: linear-gradient(to right bottom, #d66432, rgba(214, 100, 50, 0.6)), url("../img/Canva - Temples in Japan.png"); }
+    .card__picture--2 {
+      background-image: linear-gradient(to right bottom, #808080, rgba(128, 128, 128, 0.6)), url("../img/Pixabay - Kyoto Imperial Palace.png"); }
+    .card__picture--3 {
+      background-image: linear-gradient(to right bottom, #40806a, rgba(64, 128, 106, 0.6)), url("../img/Canva - Japanese Landmark at Fall.png"); }
+  .card__heading {
+    color: white;
+    font-size: 2.8rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    text-align: right;
+    position: absolute;
+    top: 12rem;
+    right: 2rem;
+    width: 60%; }
+  .card__heading-span {
+    padding: 0.75rem 1.5rem;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone; }
+    .card__heading-span--1 {
+      background-image: linear-gradient(to right bottom, rgba(214, 100, 50, 0.85), rgba(214, 100, 50, 0.85)); }
+    .card__heading-span--2 {
+      background-image: linear-gradient(to right bottom, rgba(128, 128, 128, 0.85), rgba(128, 128, 128, 0.85)); }
+    .card__heading-span--3 {
+      background-image: linear-gradient(to right bottom, rgba(64, 128, 106, 0.85), rgba(64, 128, 106, 0.85)); }
+  .card__details {
+    padding: 3rem; }
+    .card__details ul {
+      list-style: none;
+      width: 80%;
+      margin: 0 auto; }
+      .card__details ul li {
+        text-align: center;
+        font-size: 1.5rem;
+        padding: 1rem; }
+        .card__details ul li:not(:last-child) {
+          border-bottom: 1px solid #eee; }
 
 .feature-box {
   height: 35vh;
@@ -231,7 +256,7 @@ body {
   .composition__photo {
     width: 55%;
     box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.4);
-    border-radius: 2px;
+    border-radius: 3px;
     position: absolute;
     z-index: 10;
     transition: all 0.2s;
