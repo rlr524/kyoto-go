@@ -497,7 +497,7 @@ body {
 .section-features {
   margin-top: -16vh;
   padding: 20rem;
-  background-image: linear-gradient(to right bottom, rgba(254, 233, 215, 0.65), rgba(249, 191, 143, 0.65)), url(../img/Canva_Traditional_japanese_Gate.png);
+  background-image: linear-gradient(to right bottom, rgba(254, 233, 215, 0.65), rgba(249, 191, 143, 0.65)), url("../img/Canva_Traditional_japanese_Gate.png");
   background-size: cover;
   position: relative;
   clip-path: polygon(0 15%, 100% 0, 100% 85%, 0 100%); }
@@ -510,6 +510,20 @@ body {
 .section-stories {
   position: relative;
   padding: 15rem 0; }
+
+.section-book {
+  padding: 15rem 0;
+  background-image: linear-gradient(to right bottom, #fee9d7, #f9bf8f); }
+
+.book {
+  background-image: linear-gradient(105deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.9) 50%, transparent 50%), url("../img/Canva - Road Downhill.png");
+  background-size: cover;
+  height: 50rem;
+  border-radius: 3px;
+  box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15); }
+  .book__form {
+    width: 50%;
+    padding: 6rem; }
 
 .row {
   max-width: 114rem;
