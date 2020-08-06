@@ -17,7 +17,7 @@
     // at 50% from the top and 50% from the side, so right in the middle
     shape-outside: circle(50% at 50% 50%);
     clip-path: circle(50% at 50% 50%);
-    transform: translateX(-3rem) skewX(12deg);
+    transform: translateX(-3rem) skewX(12.01deg);
     position: relative;
   }
 
