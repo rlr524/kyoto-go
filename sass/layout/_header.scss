@@ -1,10 +1,10 @@
 .header {
-  /* Photo by Pixabay */
   background-image: linear-gradient(
       to right bottom,
       rgba($color-light, 0.65),
       rgba($color-dark, 0.65)
     ),
+    url("../img/canva_kyoto_background.webp"),
     url("../img/canva_kyoto_background.png");
   background-position: top;
   background-size: cover;
