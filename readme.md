@@ -1,1 +1,1 @@
-# Kyoto Go! Mockup travel site for Advanced CSS course
+# Kyoto Go! Mockup travel site
