@@ -1,0 +1,589 @@
+/* use * for a universal selector to apply to all elements, which does a basic reset of the user agent defaults; this can also be
+used to set the root font size for rem units however Emiya best practice is to set root font in a :root selector (the Airbnb style
+guide, which Emiya follows, is silent on this) */
+@import "https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900";
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0; }
+
+:root {
+  font-size: 10px; }
+
+body {
+  /* use box-sizing: border-box to remove any default borders / padding as we add elements */
+  box-sizing: border-box;
+  padding: 3vmax; }
+
+/* media query for phones, kicks in at 768px */
+@media (max-width: 768px) {
+  body {
+    padding: 0; }
+  /* .heading-primary-main {
+        font-size: 6.4rem;
+    }
+    .heading-primary-sub {
+        font-size: 1.67rem;
+    }
+    .logo-svg-wrapper {
+        width: 100%;
+    }
+    .btn:link,
+    .btn:visited {
+        font-size: 1.67rem;
+    } */ }
+
+/* Create an animation to move the button in from the bottom */
+@keyframes moveInBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(90%); }
+  100% {
+    opacity: 1;
+    transform: translateY(0); } }
+
+/* create an animation to make the heading text move in upon page refresh; browsers are
+  generally optimized for only the opacity and transform properties, so stick to mainly using those */
+@keyframes moveInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-90%); }
+  75% {
+    transform: translateX(15%); }
+  100% {
+    opacity: 1;
+    transform: translateX(0); } }
+
+@keyframes moveInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(90%); }
+  75% {
+    transform: translateX(-15%); }
+  100% {
+    opacity: 1;
+    transform: translateX(0); } }
+
+body {
+  color: #34222e;
+  font-family: "Lato", sans-serif;
+  font-size: 1.25em;
+  font-weight: 400;
+  line-height: 1.7; }
+
+.heading-primary {
+  backface-visibility: hidden;
+  color: #34222e;
+  margin-bottom: 4vmax;
+  text-align: center;
+  text-transform: uppercase; }
+  .heading-primary--main {
+    /* if you want the animation to delay start
+                  animation-delay: 5s; */
+    animation-duration: 3s;
+    animation-name: moveInLeft;
+    animation-timing-function: ease-out;
+    display: block;
+    font-size: 9.6rem;
+    font-weight: 400;
+    letter-spacing: 2rem;
+    margin-left: 1rem; }
+  .heading-primary--sub {
+    /*animation-delay: 5s;*/
+    animation: moveInRight 3s ease-out;
+    display: block;
+    font-size: 2.5rem;
+    font-weight: 700;
+    letter-spacing: 0.17rem; }
+
+.heading-secondary {
+  font-size: 2.5rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 0.17rem;
+  display: inline-block;
+  background-image: linear-gradient(to right, #624057, #34222e);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  transition: all 0.2s; }
+
+.heading-tertiary {
+  font-size: 1.6rem;
+  font-weight: 700;
+  text-transform: uppercase; }
+
+.paragraph {
+  font-size: 1.6rem; }
+  .paragraph:not(:last-child) {
+    margin-bottom: 3rem; }
+
+.u-center-text {
+  text-align: center; }
+
+.u-margin-top-big {
+  margin-top: 8rem; }
+
+.u-margin-top-medium {
+  margin-top: 4rem; }
+
+.u-margin-bottom-big {
+  margin-bottom: 8rem; }
+
+.u-margin-bottom-medium {
+  margin-bottom: 4rem; }
+
+.u-margin-bottom-small {
+  margin-bottom: 1.5rem; }
+
+.bg-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+  opacity: 0.2;
+  overflow: hidden; }
+  .bg-video__content {
+    height: 100%;
+    width: 100%;
+    object-fit: cover; }
+
+.basic-btn {
+  /* these are pseudo-classes, note just one :, CSS keywords used for styling a specific state of
+  the element that is affected by user action */
+  /* This is an pseudo-element, note the two ::, a CSS keyword used for styling a specific part of the
+    element, and can be independent of user action...in this case, however, we are adding style to the button
+    that occurs after click; the "after" in the element, refers to the fact that it is the last child of the element,
+    so it is the last thing to happen (e.g. happens after all other .btn styling) */ }
+  .basic-btn:link,
+  .basic-btn :visited {
+    border-radius: 10rem;
+    display: inline-block;
+    font-size: 2rem;
+    padding: 0.5vmax 2vmax;
+    position: relative;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: all 0.2s; }
+  .basic-btn:hover {
+    /* offset-x offset-y blur-radius rgba(color r,g,b, opacity) */
+    box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.3);
+    transform: translateY(-4%); }
+  .basic-btn:active {
+    box-shadow: 0 0.3rem 0.8rem rgba(0, 0, 0, 0.3);
+    transform: translateY(-2%); }
+  .basic-btn__solid {
+    background-color: #fee9d7;
+    color: #733657; }
+  .basic-btn__white {
+    background-color: #ffffff;
+    color: #808080;
+    font-weight: 500; }
+  .basic-btn__earth {
+    background-color: #34222e;
+    color: #ffffff;
+    font-weight: 500; }
+  .basic-btn::after {
+    /* in this pseudo-element, 'after', we are required to use content and display...we don't have any content
+    requirement, so we leave it as empty with empty quotes */
+    border-radius: 10rem;
+    content: "";
+    display: inline-block;
+    /* height and width are 100% because of this pseudo-element being a child of .btn...we use 100% because we don't
+      want to change the button's height or width */
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: all 0.4s;
+    width: 100%;
+    z-index: -1; }
+  .basic-btn__solid::after {
+    background-color: #fee9d7; }
+  .basic-btn:hover::after {
+    transform: scaleX(1.1) scaleY(1.3);
+    opacity: 0; }
+  .basic-btn__animated {
+    animation: moveInBottom 1s ease-out 0.75s;
+    animation-fill-mode: backwards; }
+
+.button-text:link, .button-text:visited {
+  font-size: 1.6rem;
+  color: #34222e;
+  display: inline-block;
+  text-decoration: none;
+  border-bottom: 1px solid #34222e;
+  padding: 3px;
+  transition: all 0.2s; }
+
+.button-text:hover {
+  background-color: #34222e;
+  color: #fee9d7;
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px); }
+
+.button-text:active {
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  transform: translateY(0); }
+
+.card {
+  perspective: 150rem;
+  position: relative;
+  height: 51rem; }
+  .card__side {
+    height: 51rem;
+    transition: all 1s ease;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    border-radius: 3px;
+    overflow: hidden;
+    box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15); }
+    .card__side--front {
+      background-color: #ffffff; }
+    .card__side--back {
+      transform: rotateY(180deg); }
+      .card__side--back-1 {
+        background-image: linear-gradient(to right bottom, #d66432, rgba(214, 100, 50, 0.5)); }
+      .card__side--back-2 {
+        background-image: linear-gradient(to right bottom, #808080, rgba(128, 128, 128, 0.5)); }
+      .card__side--back-3 {
+        background-image: linear-gradient(to right bottom, #40806a, rgba(64, 128, 106, 0.5)); }
+  .card:hover .card__side--front {
+    transform: rotateY(-180deg); }
+  .card:hover .card__side--back {
+    transform: rotateY(0); }
+  .card__picture {
+    width: 100%;
+    height: 40%;
+    position: relative;
+    background-size: cover;
+    background-position: top;
+    background-blend-mode: screen;
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%); }
+    .card__picture--1 {
+      background-image: linear-gradient(to right bottom, #d66432, rgba(214, 100, 50, 0.6)), url("../img/Canva - Temples in Japan.png"); }
+    .card__picture--2 {
+      background-image: linear-gradient(to right bottom, #808080, rgba(128, 128, 128, 0.6)), url("../img/Pixabay - Kyoto Imperial Palace.png"); }
+    .card__picture--3 {
+      background-image: linear-gradient(to right bottom, #40806a, rgba(64, 128, 106, 0.6)), url("../img/Canva - Japanese Landmark at Fall.png"); }
+  .card__heading {
+    color: white;
+    font-size: 2.8rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    text-align: right;
+    position: absolute;
+    top: 12rem;
+    right: 2rem;
+    width: 60%; }
+  .card__heading-span {
+    padding: 0.75rem 1.5rem;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone; }
+    .card__heading-span--1 {
+      background-image: linear-gradient(to right bottom, rgba(214, 100, 50, 0.85), rgba(214, 100, 50, 0.85)); }
+    .card__heading-span--2 {
+      background-image: linear-gradient(to right bottom, rgba(128, 128, 128, 0.85), rgba(128, 128, 128, 0.85)); }
+    .card__heading-span--3 {
+      background-image: linear-gradient(to right bottom, rgba(64, 128, 106, 0.85), rgba(64, 128, 106, 0.85)); }
+  .card__details {
+    padding: 3rem; }
+    .card__details ul {
+      list-style: none;
+      width: 80%;
+      margin: 0 auto; }
+      .card__details ul li {
+        text-align: center;
+        font-size: 1.5rem;
+        padding: 1rem; }
+        .card__details ul li:not(:last-child) {
+          border-bottom: 1px solid #eee; }
+  .card__cta {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    text-align: center; }
+  .card__price-box {
+    color: #ffffff;
+    margin-bottom: 8rem; }
+  .card__price-only {
+    font-size: 2rem;
+    text-transform: uppercase; }
+  .card__price-value {
+    font-size: 6rem;
+    font-weight: 100; }
+
+.feature-box {
+  height: 35vh;
+  background-color: rgba(244, 244, 244, 0.8);
+  font-size: 1.5rem;
+  padding: 2.5rem;
+  text-align: center;
+  border-radius: 3px;
+  box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s; }
+  .feature-box__icon {
+    font-size: 6rem;
+    margin-bottom: 0.5rem;
+    display: inline-block;
+    background-image: linear-gradient(to right, #624057, #34222e);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent; }
+  .feature-box:hover {
+    transform: translateY(-1.5rem) scale(1.03); }
+
+.composition {
+  position: relative; }
+  .composition__photo {
+    width: 55%;
+    box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.4);
+    border-radius: 3px;
+    position: absolute;
+    z-index: 10;
+    transition: all 0.2s;
+    outline-offset: 2rem; }
+    .composition__photo--p1 {
+      left: 0;
+      top: -2rem; }
+    .composition__photo--p2 {
+      right: 0;
+      top: 2rem; }
+    .composition__photo--p3 {
+      left: 20%;
+      top: 10rem; }
+    .composition__photo:hover {
+      outline: 1.5rem solid #624057;
+      transform: scale(1.05) translateY(-0.5rem);
+      box-shadow: 0 2.5rem 4rem rgba(0, 0, 0, 0.5);
+      z-index: 20; }
+  .composition:hover .composition_photo:not(:hover) {
+    transform: scale(0.95); }
+
+.story {
+  width: 75%;
+  margin: 0 auto;
+  box-shadow: 0 3rem 6rem rgba(0, 0, 0, 0.1);
+  background-color: rgba(255, 255, 255, 0.6);
+  border-radius: 3px;
+  padding: 6rem;
+  padding-left: 9rem;
+  font-size: 1.6rem;
+  transform: skewX(-12deg); }
+  .story__shape {
+    width: 15rem;
+    height: 15rem;
+    float: left;
+    shape-outside: circle(50% at 50% 50%);
+    clip-path: circle(50% at 50% 50%);
+    transform: translateX(-3rem) skewX(12.01deg);
+    position: relative; }
+  .story__img {
+    width: 100%;
+    height: 100%;
+    transform: scale(1.1);
+    backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    transition: all 0.5s; }
+  .story__text {
+    transform: skewX(12deg); }
+  .story__caption {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    color: #ffffff;
+    text-transform: uppercase;
+    transform: translate(50%, 20%);
+    font-size: 1.7rem;
+    font-weight: bold;
+    text-align: center;
+    opacity: 0;
+    transition: all 0.5s;
+    backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -webkit-backface-visibility: hidden; }
+  .story:hover .story__caption {
+    opacity: 1;
+    transform: translate(-50%, -50%); }
+  .story:hover .story__img {
+    transform: scale(1);
+    filter: blur(3px) brightness(80%); }
+
+.form__group:not(:last-child) {
+  margin-bottom: 2rem; }
+
+.form__input {
+  font-size: 1.5rem;
+  font-family: inherit;
+  color: inherit;
+  padding: 1.5rem 2rem;
+  border-radius: 2px;
+  background-color: rgba(255, 255, 255, 0.5);
+  border: none;
+  border-bottom: 3px solid transparent;
+  width: 90%;
+  display: block; }
+  .form__input:focus {
+    outline: none;
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.1);
+    border-bottom: 3px solid #f9bf8f; }
+  .form__input:focus:invalid {
+    border-bottom: 3px solid #d66432; }
+  .form__input:placeholder-shown {
+    color: rgba(128, 128, 128, 0.7); }
+  .form__input::-webkit-input-placeholder {
+    color: rgba(128, 128, 128, 0.7); }
+
+.form__label {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-left: 2rem;
+  margin-top: 0.7rem;
+  display: block;
+  transition: all 0.3s; }
+
+.form__input:placeholder-shown + .form__label {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-4rem); }
+
+.header {
+  background-image: linear-gradient(to right bottom, rgba(254, 233, 215, 0.65), rgba(249, 191, 143, 0.65)), url("../img/canva_kyoto_background.webp"), url("../img/canva_kyoto_background.png");
+  background-position: top;
+  background-size: cover;
+  clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+  height: 95vh;
+  position: relative;
+  /* these are pseudo-classes, note just one :, CSS keywords used for styling a specific state of
+  the element that is affected by user action */
+  /* This is an pseudo-element, note the two ::, a CSS keyword used for styling a specific part of the
+    element, and can be independent of user action...in this case, however, we are adding style to the button
+    that occurs after click; the "after" in the element, refers to the fact that it is the last child of the element,
+    so it is the last thing to happen (e.g. happens after all other .btn styling) */ }
+  .header__logo--svg-wrapper {
+    position: absolute;
+    left: 4rem;
+    top: 4rem;
+    width: 40%; }
+  .header__text-box {
+    position: absolute;
+    left: 50%;
+    text-align: center;
+    top: 50%;
+    transform: translate(-50%, -50%); }
+  .header__btn:link,
+  .header __btn:visited {
+    border-radius: 10rem;
+    display: inline-block;
+    font-size: 2.5rem;
+    padding: 0.5vmax 2vmax;
+    position: relative;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: all 0.2s; }
+  .header__btn:hover {
+    /* offset-x offset-y blur-radius rgba(color r,g,b, opacity) */
+    box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.3);
+    transform: translateY(-4%); }
+  .header__btn:active {
+    box-shadow: 0 0.3rem 0.8rem rgba(0, 0, 0, 0.3);
+    transform: translateY(-2%); }
+  .header__btn--solid {
+    background-color: #fee9d7;
+    color: #733657; }
+  .header__btn::after {
+    /* in this pseudo-element, 'after', we are required to use content and display...we don't have any content
+    requirement, so we leave it as empty with empty quotes */
+    border-radius: 10rem;
+    content: "";
+    display: inline-block;
+    /* height and width are 100% because of this pseudo-element being a child of .btn...we use 100% because we don't
+      want to change the button's height or width */
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: all 0.4s;
+    width: 100%;
+    z-index: -1; }
+  .header__btn--solid::after {
+    background-color: #fee9d7; }
+  .header__btn:hover::after {
+    transform: scaleX(1.1) scaleY(1.3);
+    opacity: 0; }
+  .header__btn--animated {
+    animation: moveInBottom 1s ease-out 0.75s;
+    animation-fill-mode: backwards; }
+
+.section-about {
+  background-color: #f4f4f4;
+  padding: 25rem 0;
+  margin-top: -20vh; }
+
+.section-features {
+  margin-top: -16vh;
+  padding: 20rem;
+  background-image: linear-gradient(to right bottom, rgba(254, 233, 215, 0.65), rgba(249, 191, 143, 0.65)), url("../img/Canva_Traditional_japanese_Gate.png");
+  background-size: cover;
+  position: relative;
+  clip-path: polygon(0 15%, 100% 0, 100% 85%, 0 100%); }
+
+.section-tours {
+  background-color: #f4f4f4;
+  padding: 25rem 0 10rem 0;
+  margin-top: -20vh; }
+
+.section-stories {
+  position: relative;
+  padding: 15rem 0; }
+
+.section-book {
+  padding: 15rem 0;
+  background-image: linear-gradient(to right bottom, #fee9d7, #f9bf8f); }
+
+.book {
+  background-image: linear-gradient(105deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.9) 50%, transparent 50%), url("../img/Canva - Road Downhill.png");
+  background-size: cover;
+  height: 50rem;
+  border-radius: 3px;
+  box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15); }
+  .book__form {
+    width: 50%;
+    padding: 6rem; }
+
+.row {
+  max-width: 114rem;
+  margin: 0 auto; }
+  .row:not(:last-child) {
+    margin-bottom: 6rem; }
+  .row::after {
+    content: "";
+    display: table;
+    clear: both; }
+  .row [class^="col-"] {
+    float: left; }
+    .row [class^="col-"]:not(:last-child) {
+      margin-right: 6rem; }
+  .row .col-1-of-2 {
+    width: calc((100% - 6rem) / 2); }
+  .row .col-1-of-3 {
+    width: calc((100% - 2 * 6rem) / 3); }
+  .row .col-2-of-3 {
+    width: calc( (2 * ((100% - 2 * 6rem) / 3)) + 6rem); }
+  .row .col-1-of-4 {
+    width: calc((100% - 3 * 6rem) / 4); }
+  .row .col-2-of-4 {
+    width: calc( (2 * ((100% - 3 * 6rem) / 4)) + 6rem); }
+  .row .col-3-of-4 {
+    width: calc( (3 * ((100% - 3 * 6rem) / 4)) + (2 * 6rem)); }

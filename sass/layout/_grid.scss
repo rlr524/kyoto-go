@@ -1,0 +1,54 @@
+.row {
+  max-width: $grid-width;
+  margin: 0 auto;
+  //   we don't want the bottom margin on our last row, so use a psuedo class of :last-child as well as a
+  //   :not operator to exclude the "last-child" from this value using the gutter-vertical variable
+  &:not(:last-child) {
+    margin-bottom: $gutter-vertical;
+  }
+
+  // include our clearfix mixin from the _mixins file...think of a mixin as a sass function
+  @include clearfix;
+
+  // use an attribute selector to select all classes in which the name starts with the given string (caret ^ identifies "starts with")
+  // can use for any attribute, also "src", "alt", "id" etc...
+  // we could also use a *= to select all classes that "contain" the given string but "starts with" works in this case
+  // we could also use a $= to select all classes the "end" with a given string
+  [class^="col-"] {
+    float: left;
+    &:not(:last-child) {
+      margin-right: $gutter-horizontal;
+    }
+  }
+
+  .col-1-of-2 {
+    width: calc((100% - #{$gutter-horizontal}) / 2);
+  }
+
+  .col-1-of-3 {
+    width: calc((100% - 2 * #{$gutter-horizontal}) / 3);
+  }
+
+  .col-2-of-3 {
+    width: calc(
+      (2 * ((100% - 2 * #{$gutter-horizontal}) / 3)) + #{$gutter-horizontal}
+    );
+  }
+
+  .col-1-of-4 {
+    width: calc((100% - 3 * #{$gutter-horizontal}) / 4);
+  }
+
+  .col-2-of-4 {
+    width: calc(
+      (2 * ((100% - 3 * #{$gutter-horizontal}) / 4)) + #{$gutter-horizontal}
+    );
+  }
+
+  .col-3-of-4 {
+    width: calc(
+      (3 * ((100% - 3 * #{$gutter-horizontal}) / 4)) +
+        (2 * #{$gutter-horizontal})
+    );
+  }
+}

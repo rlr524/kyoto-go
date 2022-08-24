@@ -1,0 +1,190 @@
+.card {
+  // perspective needs to be defined on the parent element, can't be on a psuedoclass, etc...
+  perspective: 150rem;
+  position: relative;
+  // we have to explicitly define height on both the parent and the child as setting the children to position:absolute
+  // took them out of the natural flow of the page
+  height: 51rem;
+
+  &__side {
+    height: 51rem;
+    transition: all 1s ease;
+    // we give the two sides an absolute position and start at top 0 and left 0 so the two sides are on top of each other
+    // to do this, we also need to set the parent to position: relative above
+    position: absolute;
+    top: 0;
+    left: 0;
+    // give each side a width of 100% to account for that there are different sizes of content on each side
+    width: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    border-radius: $border-radius;
+    overflow: hidden;
+    box-shadow: 0 1.5rem 4rem rgba($color-black, 0.15);
+
+    &--front {
+      background-color: $color-white;
+    }
+
+    &--back {
+      // we're setting the backside with a beginning state already rotated 180 degrees
+      transform: rotateY(180deg);
+
+      &-1 {
+        background-image: linear-gradient(
+          to right bottom,
+          $color-card-temple-orange,
+          rgba(214, 100, 50, 0.5)
+        );
+      }
+
+      &-2 {
+        background-image: linear-gradient(
+          to right bottom,
+          $color-card-earth,
+          rgba(128, 128, 128, 0.5)
+        );
+      }
+
+      &-3 {
+        background-image: linear-gradient(
+          to right bottom,
+          $color-card-green,
+          rgba(64, 128, 106, 0.5)
+        );
+      }
+    }
+  }
+
+  &:hover &__side--front {
+    // we only apply this to the front side because only the front is rotated on hover, the back initial state was set to already rotated
+    transform: rotateY(-180deg);
+  }
+
+  &:hover &__side--back {
+    // because the backside's initial state is rotated 180 degrees, on hover, we need to set it to 0
+    transform: rotateY(0);
+  }
+
+  &__picture {
+    width: 100%;
+    height: 40%;
+    position: relative;
+    background-size: cover;
+    background-position: top;
+    background-blend-mode: screen;
+    // start at 0x and 0y (upper left); move 100% along x and 0 along y; stay 100% along x and move down 85% along y; finish at 0 x and 100% y
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+
+    &--1 {
+      background-image: linear-gradient(
+          to right bottom,
+          $color-card-temple-orange,
+          rgba(214, 100, 50, 0.6)
+        ),
+        url("../img/Canva - Temples in Japan.png");
+    }
+
+    &--2 {
+      background-image: linear-gradient(
+          to right bottom,
+          $color-card-earth,
+          rgba(128, 128, 128, 0.6)
+        ),
+        url("../img/Pixabay - Kyoto Imperial Palace.png");
+    }
+
+    &--3 {
+      background-image: linear-gradient(
+          to right bottom,
+          $color-card-green,
+          rgba(64, 128, 106, 0.6)
+        ),
+        url("../img/Canva - Japanese Landmark at Fall.png");
+    }
+  }
+  &__heading {
+    color: white;
+    font-size: 2.8rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    text-align: right;
+    position: absolute;
+    top: 12rem;
+    right: 2rem;
+    width: 60%;
+  }
+
+  &__heading-span {
+    padding: 0.75rem 1.5rem;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+
+    &--1 {
+      background-image: linear-gradient(
+        to right bottom,
+        rgba($color-card-temple-orange, 0.85),
+        rgba(214, 100, 50, 0.85)
+      );
+    }
+
+    &--2 {
+      background-image: linear-gradient(
+        to right bottom,
+        rgba($color-card-earth, 0.85),
+        rgba(128, 128, 128, 0.85)
+      );
+    }
+
+    &--3 {
+      background-image: linear-gradient(
+        to right bottom,
+        rgba($color-card-green, 0.85),
+        rgba(64, 128, 106, 0.85)
+      );
+    }
+  }
+
+  &__details {
+    padding: 3rem;
+
+    ul {
+      list-style: none;
+      width: 80%;
+      margin: 0 auto;
+
+      li {
+        text-align: center;
+        font-size: 1.5rem;
+        padding: 1rem;
+
+        &:not(:last-child) {
+          border-bottom: 1px solid #eee;
+        }
+      }
+    }
+  }
+  &__cta {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    text-align: center;
+  }
+
+  &__price-box {
+    color: $color-white;
+    margin-bottom: 8rem;
+  }
+
+  &__price-only {
+    font-size: 2rem;
+    text-transform: uppercase;
+  }
+
+  &__price-value {
+    font-size: 6rem;
+    font-weight: 100;
+  }
+}

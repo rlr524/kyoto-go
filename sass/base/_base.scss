@@ -1,0 +1,41 @@
+/* use * for a universal selector to apply to all elements, which does a basic reset of the user agent defaults; this can also be
+used to set the root font size for rem units however Emiya best practice is to set root font in a :root selector (the Airbnb style
+guide, which Emiya follows, is silent on this) */
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+// set the root at 10px in order to allow all subsequent rem units to be based on 10
+:root {
+  font-size: 10px;
+}
+
+body {
+  /* use box-sizing: border-box to remove any default borders / padding as we add elements */
+  box-sizing: border-box;
+  padding: 3vmax;
+}
+
+/* media query for phones, kicks in at 768px */
+@media (max-width: 768px) {
+  body {
+    padding: 0;
+  }
+  /* .heading-primary-main {
+        font-size: 6.4rem;
+    }
+    .heading-primary-sub {
+        font-size: 1.67rem;
+    }
+    .logo-svg-wrapper {
+        width: 100%;
+    }
+    .btn:link,
+    .btn:visited {
+        font-size: 1.67rem;
+    } */
+}

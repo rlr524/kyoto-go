@@ -1,0 +1,55 @@
+.section-about {
+  background-color: $color-grey-bg;
+  padding: 25rem 0;
+  margin-top: -20vh;
+}
+
+.section-features {
+  margin-top: -16vh;
+  padding: 20rem;
+  // Photo by JordyMeow--943760 from Pixabay via www.canva.com
+  background-image: linear-gradient(
+      to right bottom,
+      rgba($color-light, 0.65),
+      rgba($color-dark, 0.65)
+    ),
+    url("../img/Canva_Traditional_japanese_Gate.png");
+  background-size: cover;
+  position: relative;
+  clip-path: polygon(0 15%, 100% 0, 100% 85%, 0 100%);
+}
+
+.section-tours {
+  background-color: $color-grey-bg;
+  padding: 25rem 0 10rem 0;
+  margin-top: -20vh;
+}
+
+.section-stories {
+  position: relative;
+  padding: 15rem 0;
+}
+
+.section-book {
+  padding: 15rem 0;
+  background-image: linear-gradient(to right bottom, $color-light, $color-dark);
+}
+
+.book {
+  background-image: linear-gradient(
+      105deg,
+      rgba($color-white, 0.9) 0%,
+      rgba($color-white, 0.9) 50%,
+      transparent 50%
+    ),
+    url("../img/Canva - Road Downhill.png");
+  background-size: cover;
+  height: 50rem;
+  border-radius: $border-radius;
+  box-shadow: 0 1.5rem 4rem rgba($color-black, 0.15);
+
+  &__form {
+    width: 50%;
+    padding: 6rem;
+  }
+}

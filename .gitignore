@@ -1,0 +1,4 @@
+# ignore the nonprod folder
+nonprod
+node_modules
+.idea

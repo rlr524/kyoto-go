@@ -1,0 +1,26 @@
+{
+	"name": "kyoto-go",
+	"version": "0.1.0",
+	"description": "Kyoto Go! Site for CSS Course",
+	"main": "index.html",
+	"scripts": {
+		"compile:sass": "sass sass/main.scss css/style.css -w"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/rlr524/kyoto-go.git"
+	},
+	"author": "Rob Ranf",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/rlr524/kyoto-go/issues"
+	},
+	"homepage": "https://github.com/rlr524/kyoto-go#readme",
+	"dependencies": {
+		"prettier": "^2.7.1"
+	},
+	"devDependencies": {
+		"eslint": "^8.22.0",
+		"sass": "^1.54.5"
+	}
+}
